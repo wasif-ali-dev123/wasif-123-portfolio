@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Maple HR — representative illustration">
+  <defs>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+    <radialGradient id="glow" cx="20%" cy="0%" r="90%"><stop offset="0" stop-color="#f59e0b" stop-opacity="0.14"/><stop offset="1" stop-color="#14110e" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="#14110e"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <!-- window frame -->
+  <rect x="64" y="56" width="1152" height="608" rx="20" fill="#1c1917" stroke="#2e2823"/>
+  <rect x="64" y="56" width="1152" height="56" rx="20" fill="#211d19"/>
+  <rect x="64" y="92" width="1152" height="20" fill="#211d19"/>
+  <circle cx="96" cy="84" r="6" fill="#3f3a34"/><circle cx="118" cy="84" r="6" fill="#3f3a34"/><circle cx="140" cy="84" r="6" fill="#3f3a34"/>
+  <rect x="176" y="74" width="220" height="20" rx="10" fill="#14110e"/>
+  <text x="192" y="89" font-family="'SF Mono',ui-monospace,Menlo,monospace" font-size="13" fill="#a8a29e">maplehr.io · payroll</text>
+  <!-- left rail -->
+  <rect x="88" y="136" width="200" height="504" rx="14" fill="#211d19"/>
+  <rect x="108" y="160" width="120" height="14" rx="7" fill="url(#acc)"/>
+  <g fill="#2e2823"><rect x="108" y="204" width="160" height="12" rx="6"/><rect x="108" y="236" width="140" height="12" rx="6"/><rect x="108" y="268" width="150" height="12" rx="6"/><rect x="108" y="300" width="120" height="12" rx="6"/></g>
+  <rect x="108" y="596" width="150" height="26" rx="13" fill="#14110e" stroke="#2e2823"/>
+  <text x="124" y="613" font-family="'SF Mono',ui-monospace,Menlo,monospace" font-size="12" fill="#fbbf24">● RBAC</text>
+  <!-- stat tiles -->
+  <g>
+    <rect x="312" y="136" width="272" height="96" rx="14" fill="#211d19" stroke="#2e2823"/>
+    <text x="336" y="184" font-family="Georgia,serif" font-size="40" font-weight="700" fill="#f5f1ea">500+</text>
+    <text x="336" y="210" font-family="'SF Mono',ui-monospace,monospace" font-size="13" fill="#a8a29e">organizations</text>
+    <rect x="604" y="136" width="272" height="96" rx="14" fill="#211d19" stroke="#2e2823"/>
+    <text x="628" y="184" font-family="Georgia,serif" font-size="40" font-weight="700" fill="#f5f1ea">Real-time</text>
+    <text x="628" y="210" font-family="'SF Mono',ui-monospace,monospace" font-size="13" fill="#a8a29e">workflows · WebSockets</text>
+    <rect x="896" y="136" width="296" height="96" rx="14" fill="#211d19" stroke="#2e2823"/>
+    <text x="920" y="184" font-family="Georgia,serif" font-size="40" font-weight="700" fill="#f5f1ea">Multi-tenant</text>
+    <text x="920" y="210" font-family="'SF Mono',ui-monospace,monospace" font-size="13" fill="#a8a29e">isolated by org</text>
+  </g>
+  <!-- table -->
+  <rect x="312" y="256" width="880" height="384" rx="14" fill="#211d19" stroke="#2e2823"/>
+  <text x="336" y="292" font-family="Georgia,serif" font-size="18" fill="#f5f1ea">Payroll run</text>
+  <g>
+    <!-- header -->
+    <rect x="336" y="312" width="832" height="1" fill="#2e2823"/>
+    <g font-family="'SF Mono',ui-monospace,monospace" font-size="12" fill="#a8a29e"><text x="384" y="340">EMPLOYEE</text><text x="720" y="340">GROSS</text><text x="900" y="340">NET</text><text x="1060" y="340">STATUS</text></g>
+  </g>
+  <g>
+    <!-- rows -->
+    <g transform="translate(0,0)"><circle cx="356" cy="380" r="12" fill="#2e2823"/><rect x="384" y="374" width="180" height="12" rx="6" fill="#3a342d"/><rect x="720" y="374" width="90" height="12" rx="6" fill="#2e2823"/><rect x="900" y="374" width="80" height="12" rx="6" fill="#2e2823"/><rect x="1060" y="368" width="88" height="24" rx="12" fill="#f59e0b" opacity="0.18"/><text x="1074" y="385" font-family="'SF Mono',monospace" font-size="12" fill="#fbbf24">paid</text></g>
+    <g transform="translate(0,52)"><circle cx="356" cy="380" r="12" fill="#2e2823"/><rect x="384" y="374" width="150" height="12" rx="6" fill="#3a342d"/><rect x="720" y="374" width="90" height="12" rx="6" fill="#2e2823"/><rect x="900" y="374" width="80" height="12" rx="6" fill="#2e2823"/><rect x="1060" y="368" width="88" height="24" rx="12" fill="#f59e0b" opacity="0.18"/><text x="1074" y="385" font-family="'SF Mono',monospace" font-size="12" fill="#fbbf24">paid</text></g>
+    <g transform="translate(0,104)"><circle cx="356" cy="380" r="12" fill="#2e2823"/><rect x="384" y="374" width="200" height="12" rx="6" fill="#3a342d"/><rect x="720" y="374" width="90" height="12" rx="6" fill="#2e2823"/><rect x="900" y="374" width="80" height="12" rx="6" fill="#2e2823"/><rect x="1060" y="368" width="98" height="24" rx="12" fill="#a8a29e" opacity="0.12"/><text x="1074" y="385" font-family="'SF Mono',monospace" font-size="12" fill="#a8a29e">queued</text></g>
+    <g transform="translate(0,156)"><circle cx="356" cy="380" r="12" fill="#2e2823"/><rect x="384" y="374" width="170" height="12" rx="6" fill="#3a342d"/><rect x="720" y="374" width="90" height="12" rx="6" fill="#2e2823"/><rect x="900" y="374" width="80" height="12" rx="6" fill="#2e2823"/><rect x="1060" y="368" width="98" height="24" rx="12" fill="#a8a29e" opacity="0.12"/><text x="1074" y="385" font-family="'SF Mono',monospace" font-size="12" fill="#a8a29e">queued</text></g>
+  </g>
+  <!-- tag -->
+  <text x="1192" y="632" text-anchor="end" font-family="'SF Mono',ui-monospace,monospace" font-size="11" fill="#5c554d" letter-spacing="2">REPRESENTATIVE</text>
+</svg>

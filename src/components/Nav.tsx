@@ -29,7 +29,7 @@ export function Nav() {
           <span className="font-display text-lg font-semibold text-strong">Wasif Ali</span>
         </a>
 
-        <div className="hidden items-center gap-7 text-[15px] md:flex">
+        <div className="hidden items-center gap-7 text-[15px] lg:flex">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="text-muted transition-colors hover:text-strong">
               {item.label}
@@ -43,7 +43,7 @@ export function Nav() {
           </a>
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
           <a href={bookingHref} className="rounded-full bg-strong px-4 py-2.5 text-sm font-semibold text-ink">
             Book a call
           </a>
@@ -61,7 +61,7 @@ export function Nav() {
       </nav>
 
       {open ? (
-        <div id="mobile-menu" className="border-t border-line bg-ink md:hidden">
+        <div id="mobile-menu" className="border-t border-line bg-ink lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4">
             {navItems.map((item) => (
               <a

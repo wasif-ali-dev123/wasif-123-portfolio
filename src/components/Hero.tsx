@@ -1,98 +1,122 @@
-import { profile, social, metrics } from "@/data/portfolio";
+import { availability, bookingHref, links, profile, teams } from "@/data/portfolio";
 import { Reveal } from "./Reveal";
-import { btnPrimary, btnSecondary } from "./ui";
-import { ArrowRightIcon, GitHubIcon, LinkedInIcon } from "./icons";
+import { btnOutline, btnPrimary } from "./ui";
+import { ArrowRightIcon, DownloadIcon, SparkleIcon, namedIcons } from "./icons";
 
 export function Hero() {
   return (
-    <section id="top" aria-label="Introduction" className="relative overflow-hidden">
-      {/* Subtle background wash — restrained, no heavy glow. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(60rem 30rem at 50% -10%, color-mix(in oklab, var(--accent) 14%, transparent), transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-border-strong to-transparent"
-      />
-
-      <div className="mx-auto max-w-6xl px-5 pb-20 pt-24 sm:px-8 sm:pt-32">
-        <Reveal>
-          <p className="inline-flex items-center gap-2.5 font-mono text-xs font-medium uppercase tracking-[0.18em] text-muted">
-            <span className="h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
-            Available for Senior Full-Stack roles
-          </p>
+    <section id="top" aria-label="Introduction" className="mx-auto flex max-w-6xl flex-wrap items-center gap-14 px-5 pb-10 pt-12 sm:px-8 sm:pt-14">
+      <div className="flex min-w-0 flex-[1_1_520px] flex-col gap-7">
+        <Reveal className="flex flex-wrap items-center gap-2.5">
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-[#2a2f3a] px-3.5 py-2 text-sm text-soft">
+            <span aria-hidden="true" className="live-dot h-2 w-2 rounded-full bg-accent" />
+            {availability.badge}
+          </span>
+          <span className="text-sm text-faint">{profile.audience}</span>
         </Reveal>
 
         <Reveal delay={60}>
-          <h1 className="mt-6 font-serif text-5xl font-semibold leading-[1.02] tracking-tight text-text sm:text-7xl">
-            {profile.name}
+          <h1 className="font-display text-[clamp(2.5rem,5.4vw,4.25rem)] font-bold leading-[1.04] tracking-[-0.02em] text-strong">
+            Ship AI features that <span className="text-accent">work on day 100</span>, not just in the demo.
           </h1>
         </Reveal>
 
         <Reveal delay={120}>
-          <p className="mt-4 font-serif text-2xl font-medium italic text-accent sm:text-3xl">
-            {profile.title}
-          </p>
+          <p className="max-w-[580px] text-[19px] leading-relaxed text-muted">{profile.intro}</p>
         </Reveal>
 
-        <Reveal delay={220}>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-text sm:text-xl">
-            {profile.tagline}
-          </p>
-        </Reveal>
-
-        <Reveal delay={280}>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{profile.heroSecondary}</p>
-        </Reveal>
-
-        <Reveal delay={300}>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a href="#projects" className={btnPrimary}>
-              View Projects
-              <ArrowRightIcon width={16} height={16} />
+        <Reveal delay={160} className="flex flex-wrap items-center gap-3.5">
+          <a href={bookingHref} className={btnPrimary}>
+            Book a 20-min intro call
+            <ArrowRightIcon width={18} height={18} strokeWidth={2.2} />
+          </a>
+          <a href="#work" className={btnOutline}>
+            See how I build it
+          </a>
+          {links.resume ? (
+            <a href={links.resume} className="inline-flex items-center gap-2 px-1.5 py-3 text-[15px] text-soft underline-offset-4 hover:underline">
+              <DownloadIcon width={16} height={16} />
+              Resume (PDF)
             </a>
-            <a
-              href={social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={btnSecondary}
-              aria-label="GitHub profile (opens in a new tab)"
-            >
-              <GitHubIcon width={16} height={16} />
-              GitHub
-            </a>
-            <a
-              href={social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={btnSecondary}
-              aria-label="LinkedIn profile (opens in a new tab)"
-            >
-              <LinkedInIcon width={16} height={16} />
-              LinkedIn
-            </a>
-          </div>
+          ) : null}
         </Reveal>
 
-        {/* Credibility indicators — inline serif-numeral stat row */}
-        <Reveal delay={360}>
-          <dl className="mt-14 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-border pt-8 sm:flex sm:flex-wrap sm:items-start sm:gap-x-12">
-            {metrics.map((m) => (
-              <div key={m.label} className="sm:max-w-[13rem]">
-                <dt className="font-serif text-4xl font-semibold tracking-tight text-text sm:text-5xl">
-                  {m.value}
-                </dt>
-                <dd className="mt-2 text-sm leading-snug text-muted">{m.label}</dd>
-              </div>
+        <Reveal delay={200} className="flex flex-col gap-3">
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-soft">
+            {availability.promises.map((p) => {
+              const Icon = namedIcons[p.icon];
+              return (
+                <li key={p.text} className="inline-flex items-center gap-2">
+                  <Icon width={16} height={16} strokeWidth={2} className="text-accent" />
+                  {p.text}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="text-sm text-[#8c93a1]">
+            Built with teams at{" "}
+            {teams.map((t, i) => (
+              <span key={t}>
+                <span className="text-[#d5d9e0]">{t}</span>
+                {i < teams.length - 1 ? " · " : ""}
+              </span>
             ))}
-          </dl>
+          </p>
         </Reveal>
       </div>
+
+      <Reveal delay={120} className="relative min-w-0 flex-[1_1_440px] py-6">
+        <HeroCard />
+      </Reveal>
     </section>
+  );
+}
+
+/** A mock AI assistant inside a product: what "AI features with guardrails" looks like. */
+function HeroCard() {
+  return (
+    <div aria-hidden="true">
+      <div className="overflow-hidden rounded-[20px] border border-line bg-surface shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+        <div className="flex items-center gap-2 border-b border-line px-[18px] py-3.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+          <span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
+          <span className="ml-3 text-[13px] text-[#8c93a1]">AI assistant · in your product</span>
+        </div>
+        <div className="flex flex-col gap-3.5 p-[22px]">
+          <div className="max-w-[80%] self-end rounded-[14px_14px_4px_14px] bg-surface-3 px-3.5 py-3 text-sm leading-normal text-text">
+            Summarize this week&apos;s payroll exceptions and draft a note to the finance lead.
+          </div>
+          <div className="flex max-w-[88%] flex-col gap-2.5 rounded-[14px_14px_14px_4px] border border-line bg-surface-2 p-3.5">
+            <div className="flex items-center gap-2 text-xs font-semibold text-accent">
+              <SparkleIcon width={14} height={14} strokeWidth={2} />
+              Grounded in 3 records
+            </div>
+            <div className="h-2 w-[92%] rounded bg-surface-3" />
+            <div className="h-2 w-[78%] rounded bg-surface-3" />
+            <div className="h-2 w-[85%] rounded bg-surface-3" />
+            <div className="h-2 w-[40%] rounded bg-surface-3" />
+          </div>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(110px,1fr))] gap-2.5 font-mono">
+            <div className="rounded-[10px] bg-surface-2 px-3 py-2.5">
+              <div className="text-[11px] text-[#8c93a1]">model</div>
+              <div className="text-[13px] text-text">primary → fallback</div>
+            </div>
+            <div className="rounded-[10px] bg-surface-2 px-3 py-2.5">
+              <div className="text-[11px] text-[#8c93a1]">cost cap</div>
+              <div className="text-[13px] text-text">per user / day</div>
+            </div>
+            <div className="rounded-[10px] bg-surface-2 px-3 py-2.5">
+              <div className="text-[11px] text-[#8c93a1]">output</div>
+              <div className="text-[13px] text-accent">checked ✓</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative mt-4 inline-flex flex-col gap-0.5 rounded-[14px] sm:absolute sm:-bottom-2.5 sm:left-4 sm:mt-0 bg-white px-[18px] py-3.5 text-ink shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
+        <span className="font-display text-[22px] font-bold">121,000+ jobs</span>
+        <span className="text-[13px] text-paper-muted">scored by an AI product I built solo</span>
+      </div>
+    </div>
   );
 }

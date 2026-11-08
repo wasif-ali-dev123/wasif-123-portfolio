@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navItems, profile } from "@/data/portfolio";
-import { ThemeToggle } from "./ThemeToggle";
-import { MenuIcon, CloseIcon } from "./icons";
+import { bookingHref, navItems } from "@/data/portfolio";
+import { CloseIcon, MenuIcon } from "./icons";
 
 export function Nav() {
   const [open, setOpen] = useState(false);
@@ -16,53 +15,41 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open.
-  useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
   return (
     <header
       className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled
-          ? "border-border bg-bg/85 backdrop-blur supports-[backdrop-filter]:bg-bg/70"
-          : "border-transparent bg-bg/0"
+        scrolled ? "border-line bg-ink/85 backdrop-blur" : "border-transparent"
       }`}
     >
-      <nav aria-label="Primary" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <a
-          href="#top"
-          className="rounded-md font-serif text-lg font-semibold tracking-tight text-text transition-colors hover:text-accent"
-        >
-          {profile.name}
-          <span className="text-accent">.</span>
+      <nav aria-label="Primary" className="mx-auto flex h-[72px] max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
+        <a href="#top" className="flex items-center gap-2.5">
+          <span className="flex h-9 w-9 items-center justify-center rounded-[10px] bg-accent font-display text-base font-bold text-accent-ink">
+            WA
+          </span>
+          <span className="font-display text-lg font-semibold text-strong">Wasif Ali</span>
         </a>
 
-        {/* Desktop links — amber underline treatment on hover/focus */}
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-7 text-[15px] md:flex">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="group relative rounded-sm py-1 text-sm font-medium text-muted transition-colors hover:text-text"
-            >
+            <a key={item.href} href={item.href} className="text-muted transition-colors hover:text-strong">
               {item.label}
-              <span
-                aria-hidden="true"
-                className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent transition-all duration-200 group-hover:w-full"
-              />
             </a>
           ))}
+          <a
+            href={bookingHref}
+            className="rounded-full bg-strong px-[18px] py-[11px] font-semibold text-ink transition-colors hover:bg-accent"
+          >
+            Book a call
+          </a>
         </div>
 
-        <div className="flex items-center gap-2">
-          <ThemeToggle />
+        <div className="flex items-center gap-2 md:hidden">
+          <a href={bookingHref} className="rounded-full bg-strong px-4 py-2.5 text-sm font-semibold text-ink">
+            Book a call
+          </a>
           <button
             type="button"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-strong bg-surface text-text md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-line-strong text-strong"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -73,16 +60,15 @@ export function Nav() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       {open ? (
-        <div id="mobile-menu" className="border-t border-border bg-bg md:hidden">
-          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4 sm:px-8">
+        <div id="mobile-menu" className="border-t border-line bg-ink md:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1 px-5 py-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-3 text-base font-medium text-muted transition-colors hover:bg-surface-2 hover:text-text"
+                className="rounded-lg px-3 py-3 text-base font-medium text-muted hover:bg-surface hover:text-strong"
               >
                 {item.label}
               </a>

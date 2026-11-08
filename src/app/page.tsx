@@ -1,37 +1,24 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Projects } from "@/components/Projects";
-import { AIArchitecture } from "@/components/AIArchitecture";
-import { Consulting } from "@/components/Consulting";
+import { Proof } from "@/components/Proof";
+import { Work } from "@/components/Work";
+import { Trust } from "@/components/Trust";
+import { Services } from "@/components/Services";
 import { Experience } from "@/components/Experience";
-import { Skills } from "@/components/Skills";
-import { Education } from "@/components/Education";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
-import { Divider } from "@/components/Section";
 
 export default function Home() {
   return (
     <>
       <Nav />
-      <main id="main">
+      <main id="main" className="overflow-x-clip">
         <Hero />
-        <Divider />
-        <About />
-        <Divider />
+        <Proof />
+        <Work />
+        <Trust />
+        <Services />
         <Experience />
-        <Divider />
-        <Projects />
-        <Divider />
-        <AIArchitecture />
-        <Divider />
-        <Consulting />
-        <Divider />
-        <Skills />
-        <Divider />
-        <Education />
-        <Divider />
         <Contact />
       </main>
       <Footer />

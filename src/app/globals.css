@@ -1,102 +1,87 @@
 @import "tailwindcss";
 
-/* Class-based dark mode: the <html> element gets `.dark` from the theme script. */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* ── Semantic color tokens ─────────────────────────────────────────────────
-   Defined as CSS variables so they can switch at runtime between light/dark,
-   then mapped into Tailwind's theme (see @theme inline below) to generate
-   utilities like bg-surface, text-muted, border-border, text-accent, etc. */
+/* ── Color tokens ──────────────────────────────────────────────────────────
+   One dark theme (ink + lime) with a light "paper" band for the work section.
+   Mapped into Tailwind below, so utilities like bg-ink, text-muted, bg-paper,
+   text-accent exist. */
 :root {
-  /* Whitish warm-neutral base (light theme). */
-  --bg: #ffffff;
-  --bg-subtle: #fafaf9;
-  --surface: #ffffff;
-  --surface-2: #f5f5f4;
-  --border: #e7e5e4;
-  --border-strong: #d6d3d1;
-  --text: #1c1917; /* warm stone-900 */
-  --text-muted: #57534e; /* stone-600 */
-  --accent: #b45309; /* amber-700 — accessible amber on light backgrounds */
-  --accent-strong: #92400e; /* amber-800 — darker hover/emphasis */
-  --accent-contrast: #ffffff;
-  --ring: #d97706; /* amber-600 — visible focus ring on light */
-}
+  --ink: #0b0d12;
+  --ink-2: #0f1219;
+  --surface: #141821;
+  --surface-2: #1b202b;
+  --surface-3: #2c3342;
+  --line: #262b36;
+  --line-strong: #3a404d;
+  --text: #e8eaee;
+  --text-strong: #ffffff;
+  --text-soft: #c9ced8;
+  --muted: #b4bac6;
+  --faint: #a1a7b3;
+  --accent: #c8f25c;
+  --accent-ink: #0b0d12;
+  --ring: #7cc4ff;
 
-.dark {
-  /* Warm stone base + amber accent (dark theme). */
-  --bg: #0c0a09; /* stone-950, warm not blue-black */
-  --bg-subtle: #171310;
-  --surface: #1c1917; /* stone-900 */
-  --surface-2: #292524; /* stone-800 */
-  --border: #302a25;
-  --border-strong: #44403c; /* stone-700 */
-  --text: #f5f1ea; /* warm off-white */
-  --text-muted: #a8a29e; /* stone-400 */
-  --accent: #fbbf24; /* amber-400 — bright warm amber on dark */
-  --accent-strong: #fcd34d; /* amber-300 — brighter hover/emphasis */
-  --accent-contrast: #1c1917; /* dark stone text on amber fills */
-  --ring: #f59e0b; /* amber-500 — visible focus ring on dark */
+  --paper: #f6f5f1;
+  --paper-card: #ffffff;
+  --paper-line: #e4e2db;
+  --paper-text: #12151c;
+  --paper-body: #3a3f4b;
+  --paper-muted: #4b5160;
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-bg-subtle: var(--bg-subtle);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --color-border: var(--border);
-  --color-border-strong: var(--border-strong);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
   --color-text: var(--text);
-  --color-muted: var(--text-muted);
+  --color-strong: var(--text-strong);
+  --color-soft: var(--text-soft);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-accent: var(--accent);
-  --color-accent-strong: var(--accent-strong);
-  --color-accent-contrast: var(--accent-contrast);
-  --color-ring: var(--ring);
+  --color-accent-ink: var(--accent-ink);
+  --color-paper: var(--paper);
+  --color-paper-card: var(--paper-card);
+  --color-paper-line: var(--paper-line);
+  --color-paper-text: var(--paper-text);
+  --color-paper-body: var(--paper-body);
+  --color-paper-muted: var(--paper-muted);
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: var(--font-fraunces), ui-serif, Georgia, "Times New Roman",
-    serif;
-  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, "SF Mono", Menlo, monospace;
 }
 
 /* ── Base ──────────────────────────────────────────────────────────────────── */
-* {
-  border-color: var(--border);
-}
-
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--ink);
   color: var(--text);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-/* Serif display headings (Fraunces): let the optical-size axis respond to
-   font-size for a proper editorial look. */
-.font-serif {
-  font-optical-sizing: auto;
 }
 
 /* Offset anchored sections so the sticky header doesn't cover their headings. */
 :where(section[id]) {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 5rem;
 }
 
-/* Visible, consistent focus states for keyboard users. */
+/* Visible focus for keyboard users, on dark and on paper. */
 :focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: 4px;
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
-/* Respect users who prefer reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -107,37 +92,27 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }
 
-/* Subtle entrance animation, gated on both reduced-motion and JS presence. */
+/* "On call" dot: a soft pulse. */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 55%, transparent); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.live-dot {
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+
+/* Subtle entrance animation, only when JS is on (the head script adds `.js`). */
 @keyframes reveal-up {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
-/* Hide only when JS is available (the head script adds `.js`); without JS,
-   content stays fully visible — the animation is pure enhancement. */
-.js .reveal {
-  opacity: 0;
-}
-
-.js .reveal.is-visible {
-  animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
+.js .reveal { opacity: 0; }
+.js .reveal.is-visible { animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal {
-    opacity: 1;
-  }
-  .js .reveal.is-visible {
-    animation: none;
-  }
+  .js .reveal { opacity: 1; }
+  .js .reveal.is-visible { animation: none; }
 }

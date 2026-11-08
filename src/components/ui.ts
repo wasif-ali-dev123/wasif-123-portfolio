@@ -1,18 +1,14 @@
-/** Shared class strings so buttons/links look consistent across sections. */
+/** Shared class strings so buttons and section headings look the same everywhere. */
+
+export const container = "mx-auto w-full max-w-6xl px-5 sm:px-8";
 
 const btnBase =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors duration-200 focus-visible:outline-none";
+  "inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-xl px-6 text-base font-semibold transition-colors duration-200";
 
-export const btnPrimary = `${btnBase} bg-accent text-accent-contrast hover:bg-accent-strong`;
+export const btnPrimary = `${btnBase} bg-accent text-accent-ink hover:bg-[#d6f77f]`;
 
-export const btnSecondary = `${btnBase} border border-border-strong bg-surface text-text hover:border-accent hover:text-accent`;
+export const btnOutline = `${btnBase} border border-line-strong text-strong hover:border-soft`;
 
-export const btnGhost = `${btnBase} text-muted hover:text-text`;
+export const eyebrow = "text-sm font-semibold uppercase tracking-[0.08em]";
 
-/** A pill used for technology tags. */
-export const tag =
-  "inline-flex items-center rounded-full border border-border bg-surface-2 px-3 py-1 text-xs font-medium text-muted";
-
-/** Card surface used across projects, skills, and architecture cards. */
-export const card =
-  "rounded-2xl border border-border bg-surface p-6 transition-colors duration-200";
+export const h2 = "font-display text-[clamp(2rem,4vw,3rem)] font-bold leading-[1.1] tracking-[-0.02em]";

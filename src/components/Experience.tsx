@@ -1,45 +1,29 @@
-import { experience } from "@/data/portfolio";
-import { Section } from "./Section";
-import { Reveal } from "./Reveal";
+import { experience, links, stackLine } from "@/data/portfolio";
+import { container } from "./ui";
 
 export function Experience() {
   return (
-    <Section
-      id="experience"
-      eyebrow="Experience"
-      title="Six years shipping and operating production software"
-    >
-      <ol className="space-y-0">
-        {experience.map((job, i) => (
-          <Reveal
-            as="li"
-            key={`${job.company}-${job.role}`}
-            delay={i * 60}
-            className="grid gap-x-10 gap-y-4 border-t border-border py-8 first:border-t-0 first:pt-0 sm:grid-cols-[13rem_1fr]"
-          >
-            {/* Ledger column: period + company */}
-            <div>
-              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                {job.period}
-              </p>
-              <p className="mt-2 font-serif text-lg font-medium text-text">{job.company}</p>
-            </div>
-
-            {/* Detail column: role + highlights */}
-            <div>
-              <h3 className="text-base font-semibold text-text">{job.role}</h3>
-              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-                {job.highlights.map((h, j) => (
-                  <li key={j} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
-                    <span className="mt-1.5 h-1 w-3 shrink-0 rounded-full bg-accent/70" aria-hidden="true" />
-                    {h}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
+    <section id="experience" aria-labelledby="experience-heading" className={`${container} flex flex-col gap-7 pb-24`}>
+      <h2 id="experience-heading" className="font-display text-[32px] font-bold text-strong">
+        Experience
+      </h2>
+      <ol className="flex flex-col border-t border-line">
+        {experience.map((e) => (
+          <li key={e.role} className="flex flex-wrap items-baseline gap-x-6 gap-y-2 border-b border-line py-[22px]">
+            <span className="flex-[0_0_180px] text-sm text-faint">{e.period}</span>
+            <span className="flex-[1_1_260px] text-lg font-semibold text-strong">{e.role}</span>
+            <span className="flex-[1_1_320px] text-[15px] text-muted">{e.note}</span>
+          </li>
         ))}
       </ol>
-    </Section>
+      <p className="text-[15px] leading-relaxed text-faint">
+        {stackLine}{" "}
+        {links.resume ? (
+          <a href={links.resume} className="text-text underline underline-offset-4">
+            Full resume (PDF) →
+          </a>
+        ) : null}
+      </p>
+    </section>
   );
 }

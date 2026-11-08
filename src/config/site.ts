@@ -15,13 +15,13 @@
  */
 
 // TODO: Change this to your GitHub repository name.
-export const repoName = "wasif-portfolio";
+export const repoName = "wasif-123-portfolio";
 
 // TODO: Change this to your live URL once deployed.
 //   Project page:  https://<username>.github.io/wasif-portfolio
 //   User/org page: https://<username>.github.io   (then set repoName = "")
 //   Custom domain: https://your-domain.com        (then set repoName = "")
-export const siteUrl = "https://wasif-ali-dev123.github.io/wasif-portfolio";
+export const siteUrl = "https://wasif-ali-dev123.github.io/wasif-123-portfolio";
 
 const isProd = process.env.NODE_ENV === "production";
 

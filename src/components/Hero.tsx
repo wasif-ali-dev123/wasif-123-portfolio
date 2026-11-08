@@ -36,7 +36,7 @@ export function Hero() {
           {links.resume ? (
             <a href={links.resume} className="inline-flex items-center gap-2 px-1.5 py-3 text-[15px] text-soft underline-offset-4 hover:underline">
               <DownloadIcon width={16} height={16} />
-              Resume (PDF)
+              Resume
             </a>
           ) : null}
         </Reveal>

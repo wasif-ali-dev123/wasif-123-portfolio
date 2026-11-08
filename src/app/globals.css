@@ -116,3 +116,23 @@ body {
   .js .reveal { opacity: 1; }
   .js .reveal.is-visible { animation: none; }
 }
+
+/* ── Resume page (/resume) ─────────────────────────────────────────────────── */
+.resume { color-scheme: light; }
+.resume a { color: inherit; }
+.resume-h2 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 4px;
+}
+@media print {
+  @page { margin: 14mm 14mm; }
+  body { background: #fff !important; }
+  .resume-bar { display: none !important; }
+  .resume main { padding: 0 !important; font-size: 10.5pt; }
+  .resume-block { break-inside: avoid; }
+  .resume a { text-decoration: none; }
+}

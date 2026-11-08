@@ -9,6 +9,8 @@
  * ────────────────────────────────────────────────────────────────────────────
  */
 
+import { withBasePath } from "@/config/site";
+
 /* ── Profile & links ───────────────────────────────────────────────────────── */
 
 export const profile = {
@@ -32,9 +34,21 @@ export const links = {
   // TODO: Calendly / Cal.com link. Until it is set, "Book a call" scrolls to the
   // contact section (WhatsApp, email, form), which works with no setup.
   booking: null as string | null,
-  // TODO: put your resume at public/resume.pdf and set this to "/resume.pdf".
-  resume: null as string | null,
+  // The /resume page is generated from this file (print it to PDF from there).
+  resume: withBasePath("/resume/") as string | null,
 };
+
+/* ── Recruiter quick-scan ("At a glance") ──────────────────────────────────── */
+
+export const atAGlance: { label: string; value: string | null }[] = [
+  { label: "Roles", value: "Senior Full-Stack Engineer · AI Product Engineer" },
+  { label: "Open to", value: "Full-time remote, contract or retainer, fixed-scope projects" },
+  { label: "Time zone", value: "PKT (UTC+5) · works UK/EU hours and US East mornings" },
+  { label: "Experience", value: "6+ years with remote international teams" },
+  { label: "Core stack", value: "React, TypeScript, Node.js, Ruby on Rails, PostgreSQL, AWS, LLM APIs" },
+  // TODO: notice period / earliest start date, e.g. "2 weeks". Hidden while null.
+  { label: "Can start", value: null },
+];
 
 /**
  * Where every "Book a call" button goes. Never a bare mailto: link, because

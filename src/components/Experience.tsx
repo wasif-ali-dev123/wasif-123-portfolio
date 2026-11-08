@@ -34,7 +34,7 @@ export function Experience() {
 
       {links.resume ? (
         <a href={links.resume} className="self-start text-[15px] text-text underline underline-offset-4">
-          Full resume (PDF) →
+          Full resume (view or save as PDF) →
         </a>
       ) : null}
     </section>

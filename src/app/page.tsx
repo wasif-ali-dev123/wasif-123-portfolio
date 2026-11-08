@@ -1,6 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Proof } from "@/components/Proof";
+import { AtAGlance } from "@/components/AtAGlance";
 import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Work } from "@/components/Work";
@@ -25,6 +26,7 @@ export default function Home() {
       <main id="main" className="overflow-x-clip">
         <Hero />
         <Proof />
+        <AtAGlance />
         <About />
         <Experience />
         <Work />

@@ -1,8 +1,9 @@
-import { bookingHref, directJobs, projects, spark, type Project } from "@/data/portfolio";
+import { bookingHref, directJobs, projects, spark, whatsappHref, type Project } from "@/data/portfolio";
 import { withBasePath } from "@/config/site";
 import { Reveal } from "./Reveal";
 import { container, eyebrow, h2 } from "./ui";
-import { ExternalLinkIcon, GitHubIcon, LockIcon } from "./icons";
+import { ExternalLinkIcon, GitHubIcon, LockIcon, PhoneIcon } from "./icons";
+import { CopyLink } from "./CopyLink";
 
 export function Work() {
   const sparkCells = spark.result ? [...spark.cells, { label: "Result", text: spark.result }] : spark.cells;
@@ -24,6 +25,14 @@ export function Work() {
             Ask for an architecture walkthrough →
           </a>
         </Reveal>
+
+        <nav aria-label="Case studies" className="-mt-4 flex flex-wrap gap-2">
+          {projects.map((p) => (
+            <a key={p.id} href={`#${p.id}`} className="rounded-full border border-paper-line bg-paper-card px-4 py-2 text-sm font-semibold text-paper-text hover:border-paper-text">
+              {p.name.split(" — ")[0]}
+            </a>
+          ))}
+        </nav>
 
         {/* Client projects first: the main work */}
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-6">
@@ -106,7 +115,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 
 function ProjectCard({ project: p, index }: { project: Project; index: number }) {
   return (
-    <Reveal as="article" delay={(index % 2) * 60} className="flex min-w-0 flex-col gap-5 rounded-[22px] border border-paper-line bg-paper-card p-6 sm:p-8">
+    <Reveal as="article" id={p.id} delay={(index % 2) * 60} className="flex min-w-0 scroll-mt-24 flex-col gap-5 rounded-[22px] border border-paper-line bg-paper-card p-6 sm:p-8">
       {p.image ? (
         <figure className="m-0">
           {/* eslint-disable-next-line @next/next/no-img-element -- static export: image optimizer is disabled by design */}
@@ -172,7 +181,19 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
         ))}
       </ul>
 
-      <div className="mt-auto border-t border-paper-line pt-4">
+      <div className="mt-auto flex flex-col gap-4 border-t border-paper-line pt-4">
+        <div className="flex flex-wrap items-center gap-3">
+          <a
+            href={whatsappHref(`Hi Wasif, I saw your ${p.name} case study and would like to talk about something similar.`)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center gap-2 rounded-[10px] bg-paper-text px-4 text-[15px] font-semibold text-white"
+          >
+            <PhoneIcon width={16} height={16} />
+            Ask about this project
+          </a>
+          <CopyLink hash={p.id} />
+        </div>
         {p.repoUrl || p.demoUrl ? (
           <div className="flex flex-wrap gap-5">
             {p.demoUrl ? (

@@ -15,7 +15,7 @@ interface RevealProps {
  * without JS the content is visible (see .reveal fallback), and the animation
  * is fully disabled under prefers-reduced-motion via CSS.
  */
-export function Reveal({ children, className = "", delay = 0, as = "div" }: RevealProps) {
+export function Reveal({ children, className = "", delay = 0, as = "div", id }: RevealProps & { id?: string }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -57,6 +57,7 @@ export function Reveal({ children, className = "", delay = 0, as = "div" }: Reve
   return (
     <Tag
       ref={ref as never}
+      id={id}
       className={`reveal ${visible ? "is-visible" : ""} ${className}`}
       style={delay ? { animationDelay: `${delay}ms` } : undefined}
     >

@@ -427,3 +427,40 @@ export const nextSteps = [
   { title: "Written plan in 2 days:", text: "scope, risks, estimate" },
   { title: "First working demo", text: "in week one" },
 ];
+
+/* ── Ways to work together ─────────────────────────────────────────────────── */
+
+export const engagements = [
+  { title: "Full-time remote role", text: "A senior engineer on your team, owning features from requirements to production.", fit: "Product companies and startups hiring" },
+  { title: "Monthly retainer", text: "A set number of hours each month for ongoing features, AI work and production support.", fit: "Teams that need steady senior help" },
+  { title: "Fixed-scope project", text: "An agreed scope, timeline and price for an MVP, an AI feature or a modernization.", fit: "Founders with a clear first milestone" },
+];
+
+/* ── FAQ (answers the questions clients ask before reaching out) ────────────── */
+
+export const faqs = [
+  {
+    q: "Do you work in my time zone?",
+    a: "I'm in Pakistan (UTC+5) and work UK/EU hours and US East mornings. For production issues I'm on call every day, including weekends.",
+  },
+  {
+    q: "Are you open to full-time roles or only freelance?",
+    a: "Both. I take full-time remote roles, monthly retainers and fixed-scope projects. The intro call is the place to work out which fits.",
+  },
+  {
+    q: "Can you work on an existing codebase?",
+    a: "Yes, most of my work has been on live products: client platforms at Turing and Devsinc, and modernizing BNR's legacy payroll monolith into microservices.",
+  },
+  {
+    q: "How do you keep AI features reliable and affordable?",
+    a: "Every AI feature gets a test set before launch, automatic checks on model output, fallbacks when a provider fails, and a cost limit per user, so it keeps working once real traffic arrives.",
+  },
+  {
+    q: "Will you sign an NDA? Who owns the code?",
+    a: "Happy to sign an NDA. All code lives in your repository, documented and tested, so there's no lock-in.",
+  },
+  {
+    q: "How do we start?",
+    a: "Book a 20-min call or message me on WhatsApp. I'll follow up with a short written plan (scope, risks, estimate), and you'll see a first working demo in week one.",
+  },
+];

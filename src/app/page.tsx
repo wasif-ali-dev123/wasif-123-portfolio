@@ -11,6 +11,8 @@ import { Skills } from "@/components/Skills";
 import { Education } from "@/components/Education";
 import { Trust } from "@/components/Trust";
 import { Services } from "@/components/Services";
+import { Faq } from "@/components/Faq";
+import { MobileCta } from "@/components/MobileCta";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -36,9 +38,11 @@ export default function Home() {
         <Education />
         <Trust />
         <Services />
+        <Faq />
         <Contact />
       </main>
       <Footer />
+      <MobileCta />
     </>
   );
 }

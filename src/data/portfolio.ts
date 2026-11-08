@@ -29,15 +29,23 @@ export const social = {
 } as const;
 
 export const links = {
-  // TODO: Calendly / Cal.com link. Until it is set, "Book a call" opens email.
+  // TODO: Calendly / Cal.com link. Until it is set, "Book a call" scrolls to the
+  // contact section (WhatsApp, email, form), which works with no setup.
   booking: null as string | null,
   // TODO: put your resume at public/resume.pdf and set this to "/resume.pdf".
   resume: null as string | null,
 };
 
-/** Where every "Book a call" button goes. */
-export const bookingHref =
-  links.booking ?? `mailto:${social.email}?subject=${encodeURIComponent("Intro call")}`;
+/**
+ * Where every "Book a call" button goes. Never a bare mailto: link, because
+ * a mailto: does nothing on computers with no mail app set up.
+ */
+export const bookingHref = links.booking ?? "#contact";
+
+/** WhatsApp chat link with an optional pre-filled message. */
+export function whatsappHref(text?: string): string {
+  return `https://wa.me/${social.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ""}`;
+}
 
 /* ── Availability ("always on call") ───────────────────────────────────────── */
 
@@ -52,10 +60,10 @@ export const availability = {
 
 export const navItems = [
   { label: "About", href: "#about" },
-  { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#work" },
   { label: "Engineering", href: "#engineering" },
-  { label: "Skills", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ] as const;
 
 export const teams = ["Spark", "Turing", "Devsinc", "Maple HR", "HoneyBricks"];
@@ -164,33 +172,6 @@ export const projects: Project[] = [
     image: "/projects/maple-hr.png",
   },
   {
-    id: "bnr-payroll",
-    name: "BNR — Payroll Microservices Modernization",
-    big: "~50%",
-    bigLabel: "shorter release cycles",
-    context:
-      "Modernization of a legacy monolithic payroll system into independently deployable microservices supporting ACH/RTP payment processing and payroll runs.",
-    problem:
-      "A monolithic payroll system was slow to release and fragile — a single fault could ripple across payment processing and payroll runs.",
-    contribution: [
-      "Modernized a legacy monolith into independently deployable microservices.",
-      "Supported ACH/RTP payment processing and payroll runs.",
-      "Built financial system integrations.",
-      "Improved system fault isolation.",
-    ],
-    approach:
-      "Decomposed the monolith into independently deployable services along payment and payroll boundaries, isolating faults and enabling faster, safer releases.",
-    architecture:
-      "Ruby on Rails microservices → PostgreSQL → REST APIs and financial integrations, with Sidekiq for background processing.",
-    outcome:
-      "Reduced release cycle time by ~50% and improved fault isolation across payroll and payment processing.",
-    tags: ["Ruby on Rails", "PostgreSQL", "REST APIs", "Microservices", "Financial Integrations", "Sidekiq"],
-    repoUrl: null,
-    demoUrl: null,
-    isPrivate: true,
-    image: "/projects/bnr-payroll.png",
-  },
-  {
     id: "honeybricks",
     name: "HoneyBricks",
     big: "GraphQL",
@@ -241,6 +222,33 @@ export const projects: Project[] = [
     demoUrl: null,
     isPrivate: true,
     image: "/projects/remote-asset-tracking.png",
+  },
+  {
+    id: "bnr-payroll",
+    name: "BNR — Payroll Microservices Modernization",
+    big: "~50%",
+    bigLabel: "shorter release cycles",
+    context:
+      "Modernization of a legacy monolithic payroll system into independently deployable microservices supporting ACH/RTP payment processing and payroll runs.",
+    problem:
+      "A monolithic payroll system was slow to release and fragile — a single fault could ripple across payment processing and payroll runs.",
+    contribution: [
+      "Modernized a legacy monolith into independently deployable microservices.",
+      "Supported ACH/RTP payment processing and payroll runs.",
+      "Built financial system integrations.",
+      "Improved system fault isolation.",
+    ],
+    approach:
+      "Decomposed the monolith into independently deployable services along payment and payroll boundaries, isolating faults and enabling faster, safer releases.",
+    architecture:
+      "Ruby on Rails microservices → PostgreSQL → REST APIs and financial integrations, with Sidekiq for background processing.",
+    outcome:
+      "Reduced release cycle time by ~50% and improved fault isolation across payroll and payment processing.",
+    tags: ["Ruby on Rails", "PostgreSQL", "REST APIs", "Microservices", "Financial Integrations", "Sidekiq"],
+    repoUrl: null,
+    demoUrl: null,
+    isPrivate: true,
+    image: "/projects/bnr-payroll.png",
   },
 ];
 

@@ -6,7 +6,7 @@ import { namedIcons } from "./icons";
 /** Quotes (when there are any) and how working together goes. */
 export function Trust() {
   return (
-    <section aria-label="Working with me" className={`${container} flex flex-col gap-8 pt-24`}>
+    <section aria-label="Working with me" className={`${container} flex flex-col gap-8`}>
       {testimonials.length > 0 ? (
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-5">
           {testimonials.map((t) => (

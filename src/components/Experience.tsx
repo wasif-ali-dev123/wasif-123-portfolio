@@ -4,7 +4,7 @@ import { container, eyebrow, h2 } from "./ui";
 
 export function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-heading" className={`${container} flex flex-col gap-10 py-24`}>
+    <section id="experience" aria-labelledby="experience-heading" className={`${container} flex flex-col gap-10 pb-24`}>
       <Reveal className="flex max-w-[680px] flex-col gap-3">
         <span className={`${eyebrow} text-faint`}>Experience</span>
         <h2 id="experience-heading" className={`${h2} text-strong`}>

@@ -114,8 +114,8 @@ function HeroCard() {
         </div>
       </div>
       <div className="relative mt-4 inline-flex flex-col gap-0.5 rounded-[14px] sm:absolute sm:-bottom-2.5 sm:left-4 sm:mt-0 bg-white px-[18px] py-3.5 text-ink shadow-[0_16px_40px_rgba(0,0,0,0.4)]">
-        <span className="font-display text-[22px] font-bold">121,000+ jobs</span>
-        <span className="text-[13px] text-paper-muted">scored by an AI product I built solo</span>
+        <span className="font-display text-[22px] font-bold">500+</span>
+        <span className="text-[13px] text-paper-muted">organizations on Maple HR, built with my team</span>
       </div>
     </div>
   );

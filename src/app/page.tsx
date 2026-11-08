@@ -2,17 +2,22 @@ import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { Proof } from "@/components/Proof";
 import { About } from "@/components/About";
-import { Work } from "@/components/Work";
 import { Experience } from "@/components/Experience";
+import { Work } from "@/components/Work";
 import { Engineering } from "@/components/Engineering";
 import { Ownership } from "@/components/Ownership";
-import { Trust } from "@/components/Trust";
-import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
 import { Education } from "@/components/Education";
+import { Trust } from "@/components/Trust";
+import { Services } from "@/components/Services";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
+/**
+ * Same section order as the original portfolio (About, Experience, Work,
+ * Engineering, Consulting, Skills, Education, Contact), with the results
+ * strip after the hero and the working promises and services before Contact.
+ */
 export default function Home() {
   return (
     <>
@@ -21,14 +26,14 @@ export default function Home() {
         <Hero />
         <Proof />
         <About />
-        <Work />
         <Experience />
+        <Work />
         <Engineering />
         <Ownership />
-        <Trust />
-        <Services />
         <Skills />
         <Education />
+        <Trust />
+        <Services />
         <Contact />
       </main>
       <Footer />

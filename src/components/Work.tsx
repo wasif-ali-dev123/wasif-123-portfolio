@@ -14,20 +14,32 @@ export function Work() {
           <div className="flex max-w-[660px] flex-col gap-3">
             <span className={`${eyebrow} text-paper-muted`}>Selected work</span>
             <h2 id="work-heading" className={h2}>
-              AI tools and the production systems underneath them.
+              Production systems, not demos.
             </h2>
+            <p className="text-[17px] leading-relaxed text-paper-body">
+              Four production platforms, each as a short case study: the problem, my contribution, the technical approach and the outcome.
+            </p>
           </div>
           <a href={bookingHref} className="text-base font-semibold text-paper-text underline-offset-4 hover:underline">
             Ask for an architecture walkthrough →
           </a>
         </Reveal>
 
-        <div className="flex flex-col gap-6">
+        {/* Client projects first: the main work */}
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-6">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.id} project={p} index={i} />
+          ))}
+        </div>
+
+        {/* AI work after the client projects; Direct Jobs last */}
+        <div className="flex flex-col gap-6 pt-6">
+          <h3 className="font-display text-[28px] font-bold">AI work</h3>
           {/* Spark */}
           <Reveal as="article" className="flex min-w-0 flex-wrap overflow-hidden rounded-[22px] border border-paper-line bg-paper-card">
             <div className="flex min-w-0 flex-[1_1_420px] flex-col gap-[18px] p-8 sm:p-10">
               <span className="self-start rounded-full bg-accent px-3 py-1.5 text-[13px] font-semibold text-accent-ink">{spark.tag}</span>
-              <h3 className="font-display text-[34px] font-bold leading-[1.1]">{spark.title}</h3>
+              <h4 className="font-display text-[34px] font-bold leading-[1.1]">{spark.title}</h4>
               <dl className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-6 gap-y-[18px]">
                 {sparkCells.map((c) => (
                   <div key={c.label} className="flex flex-col gap-1.5">
@@ -48,7 +60,7 @@ export function Work() {
           <Reveal as="article" className="flex min-w-0 flex-wrap overflow-hidden rounded-[22px] bg-paper-text text-text">
             <div className="flex min-w-0 flex-[1_1_460px] flex-col gap-[18px] p-8 sm:p-10">
               <span className="self-start rounded-full border border-line-strong px-3 py-1.5 text-[13px] font-semibold">{directJobs.tag}</span>
-              <h3 className="font-display text-[34px] font-bold leading-[1.1] text-strong">{directJobs.title}</h3>
+              <h4 className="font-display text-[34px] font-bold leading-[1.1] text-strong">{directJobs.title}</h4>
               <p className="text-[17px] leading-relaxed text-muted">{directJobs.text}</p>
               <p className="text-sm text-faint">{directJobs.stack}</p>
               {directJobs.demoUrl || directJobs.writeupUrl ? (
@@ -78,15 +90,6 @@ export function Work() {
           </Reveal>
         </div>
 
-        {/* Client projects: full case studies */}
-        <div className="flex flex-col gap-6">
-          <h3 className="font-display text-[28px] font-bold">Client projects in production</h3>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,460px),1fr))] gap-6">
-            {projects.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} />
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -133,12 +136,12 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
       </div>
 
       <div className="flex flex-col gap-2">
-        <h4 className="flex items-baseline gap-2.5 font-display text-[22px] font-bold leading-snug">
+        <h3 className="flex items-baseline gap-2.5 font-display text-[22px] font-bold leading-snug">
           <span aria-hidden="true" className="font-mono text-sm text-paper-muted">
             {String(index + 1).padStart(2, "0")}
           </span>
           {p.name}
-        </h4>
+        </h3>
         <p className="text-base leading-relaxed text-paper-body">{p.context}</p>
       </div>
 

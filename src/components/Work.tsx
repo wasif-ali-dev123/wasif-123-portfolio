@@ -107,7 +107,7 @@ export function Work() {
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <h5 className="text-xs font-semibold uppercase tracking-[0.06em] text-paper-muted">{label}</h5>
+      <h4 className="text-xs font-semibold uppercase tracking-[0.06em] text-paper-muted">{label}</h4>
       <div className="text-[15px] leading-relaxed text-paper-body">{children}</div>
     </div>
   );
@@ -169,7 +169,7 @@ function ProjectCard({ project: p, index }: { project: Project; index: number })
       <Field label="Architecture / workflow">{p.architecture}</Field>
 
       <div className="rounded-[14px] bg-paper p-4">
-        <h5 className="text-xs font-semibold uppercase tracking-[0.06em] text-paper-muted">Outcome</h5>
+        <h4 className="text-xs font-semibold uppercase tracking-[0.06em] text-paper-muted">Outcome</h4>
         <p className="mt-1.5 text-[15px] font-medium leading-relaxed text-paper-text">{p.outcome}</p>
       </div>
 

@@ -13,6 +13,7 @@ import { Trust } from "@/components/Trust";
 import { Services } from "@/components/Services";
 import { Faq } from "@/components/Faq";
 import { MobileCta } from "@/components/MobileCta";
+import { HashScroll } from "@/components/HashScroll";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
@@ -43,6 +44,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileCta />
+      <HashScroll />
     </>
   );
 }
